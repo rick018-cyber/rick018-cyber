@@ -1,33 +1,35 @@
-name: Generate pacman animation
+name: Generate Pac-Man Game
 
 on:
-  schedule: # execute every 12 hours
-    - cron: "0 */12 * * *"
-  workflow_dispatch:
+  schedule:
+    - cron: "0 */24 * * *"   # runs every 24 hours
+  workflow_dispatch:          # allow manual trigger
   push:
     branches:
-      - main
+      - main                  # also run on pushes to main
+
+# ✅ give Actions write access to push Pac-Man files
+permissions:
+  contents: write
 
 jobs:
-  generate:
-    permissions:
-      contents: write
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate pacman-contribution-graph.svg
+      - name: Generate pacman.svg
         uses: abozanona/pacman-contribution-graph@main
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: rick018-cyber
+          output_path: dist/pacman.svg   # same pattern as snake
 
-      - name: Push pacman-contribution-graph.svg to the output branch
+      - name: Push pacman files to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output
+          target_branch: output    # branch to store pacman files
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
