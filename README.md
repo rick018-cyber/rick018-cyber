@@ -58,9 +58,9 @@
 ---
 
 ## 🐍 Contribution Snake
-<p align="center">
-  <img src="https://github.com/rick018-cyber/rick018-cyber/blob/output/snake.svg#gh-light-mode-only" alt="Snake animation" />
-  <img src="https://github.com/rick018-cyber/rick018-cyber/blob/output/snake-dark.svg#gh-dark-mode-only" alt="Snake animation dark" />
+![Snake animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/snake.svg#gh-light-mode-only)
+![Snake animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/snake-dark.svg#gh-dark-mode-only)
+
 </p>
 
 ---
