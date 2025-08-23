@@ -1,4 +1,4 @@
-name: Generate Snake and Pac-Man
+name: Generate Snake Game
 
 on:
   schedule:
@@ -30,53 +30,12 @@ jobs:
             dist/snake-dark.svg?palette=github-dark
             dist/snake-light.svg?palette=github-light
 
-      # 3. Ensure dist folder exists for Pac-Man
-      - name: Ensure dist folder exists
-        run: mkdir -p dist
-
-      # 4. Generate Animated Pac-Man SVGs
-      - name: Generate Pac-Man SVG
-        run: |
-cat << 'EOF' > dist/pacman.svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <circle cx="50" cy="50" r="50" fill="yellow"/>
-  <path d="M50 50 L100 25 L100 75 Z" fill="black">
-    <animateTransform attributeName="transform" attributeType="XML"
-      type="rotate" from="0 50 50" to="30 50 50" dur="0.3s" repeatCount="indefinite" />
-  </path>
-</svg>
-EOF
-
-      - name: Generate Pac-Man Dark SVG
-        run: |
-cat << 'EOF' > dist/pacman-dark.svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <circle cx="50" cy="50" r="50" fill="yellow"/>
-  <path d="M50 50 L100 25 L100 75 Z" fill="white">
-    <animateTransform attributeName="transform" attributeType="XML"
-      type="rotate" from="0 50 50" to="30 50 50" dur="0.3s" repeatCount="indefinite" />
-  </path>
-</svg>
-EOF
-
-      - name: Generate Pac-Man Light SVG
-        run: |
-cat << 'EOF' > dist/pacman-light.svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <circle cx="50" cy="50" r="50" fill="yellow"/>
-  <path d="M50 50 L100 25 L100 75 Z" fill="black">
-    <animateTransform attributeName="transform" attributeType="XML"
-      type="rotate" from="0 50 50" to="30 50 50" dur="0.3s" repeatCount="indefinite" />
-  </path>
-</svg>
-EOF
-
-      # 5. Push all SVGs (Snake + Pac-Man) to output branch
-      - name: Push all SVGs to output branch
+      # 3. Push Snake SVGs to output branch
+      - name: Push snake files to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output
+          target_branch: output    # branch to store Snake files
           build_dir: dist
-          keep_files: true
+          keep_files: true         # preserves existing files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
