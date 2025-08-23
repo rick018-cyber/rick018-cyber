@@ -1,26 +1,12 @@
-name: GitHub Pac-Man
+- name: Generate Pac-Man
+  uses: Platane/gh-pacman@v2
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    output: dist/pacman.svg
 
-on:
-  schedule:
-    - cron: "0 0 * * *"   # runs daily
-  workflow_dispatch:       # allow manual trigger
+- name: Push output
+  uses: stefanzweifel/git-auto-commit-action@v4
+  with:
+    commit_message: "update Pac-Man animation"
+    file_pattern: dist/pacman.svg
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Generate Pac-Man
-        uses: Platane/gh-pacman@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # customize options here
-          color_snake: '#ffdd00'
-          color_dots: '#00ff00'
-          color_ghosts: '#ff00ff,#00ffff,#ff6600'
-
-      - name: Push output
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: "Update Pac-Man contribution graph"
