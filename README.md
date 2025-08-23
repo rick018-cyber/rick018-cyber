@@ -55,7 +55,8 @@
 ![Snake animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/snake.svg#gh-light-mode-only)
 ![Snake animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/snake-dark.svg#gh-dark-mode-only)
 
-![Pac-Man animation](https://raw.githubusercontent.com/rick018-cyber/rick018-cyber/main/dist/pacman.svg)
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/pacman-contribution-graph.svg">
+</picture>
 
 
 
