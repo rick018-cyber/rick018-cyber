@@ -30,11 +30,13 @@ jobs:
             dist/snake-dark.svg?palette=github-dark
             dist/snake-light.svg?palette=github-light
 
-      # 3. Ensure dist folder exists for Pac-Man
-      - name: Ensure dist folder
-        run: mkdir -p dist
+      # 3. Ensure dist folder exists and is writable for Pac-Man
+      - name: Ensure dist folder exists
+        run: |
+          mkdir -p dist
+          chmod 755 dist
 
-      # 4. Generate Pac-Man SVGs
+      # 4. Generate Pac-Man SVG
       - name: Generate Pac-Man SVG
         run: |
           echo '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
@@ -42,6 +44,7 @@ jobs:
             <polygon points="50,50 100,25 100,75" fill="black"/>
           </svg>' > dist/pacman.svg
 
+      # 5. Generate Pac-Man Dark SVG
       - name: Generate Pac-Man Dark SVG
         run: |
           echo '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
@@ -49,6 +52,7 @@ jobs:
             <polygon points="50,50 100,25 100,75" fill="white"/>
           </svg>' > dist/pacman-dark.svg
 
+      # 6. Generate Pac-Man Light SVG
       - name: Generate Pac-Man Light SVG
         run: |
           echo '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
@@ -56,7 +60,7 @@ jobs:
             <polygon points="50,50 100,25 100,75" fill="black"/>
           </svg>' > dist/pacman-light.svg
 
-      # 5. Push all SVGs (Snake + Pac-Man) to output branch
+      # 7. Push all SVGs (Snake + Pac-Man) to output branch
       - name: Push all SVGs to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
