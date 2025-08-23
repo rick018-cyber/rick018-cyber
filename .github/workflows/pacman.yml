@@ -1,24 +1,30 @@
-name: Generate Pac-Man Game
+name: GitHub Contribution Pac-Man
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # Runs daily
-  workflow_dispatch:      # Manual trigger
+    - cron: "0 0 * * *"   # runs daily
+  workflow_dispatch:      # manual run
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Generate Pac-Man
         uses: yoshi389111/github-profile-pacman-action@main
         with:
           github_user_name: "rick018-cyber"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push changes
+
+      - name: Push Pac-Man SVGs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pacman.svg
+          mkdir -p output
+          cp pacman.svg output/pacman.svg
+          cp pacman.svg output/pacman-dark.svg   # same file for now
+          git add output/pacman*.svg
           git commit -m "update pacman"
           git push
+
