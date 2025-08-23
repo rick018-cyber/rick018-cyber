@@ -73,7 +73,7 @@
 
 ## ⚡ Hacker Extras  
 <p align="center">
-  <img src="https://profile-counter.glitch.me/rick018-cyber/count.svg" />
+  <img src="https://komarev.com/ghpvc/?username=rick018-cyber&label=Profile%20Views&color=ff00ff&style=for-the-badge" alt="rick018-cyber" />
 </p>
 
 <p align="center">
