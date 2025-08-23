@@ -57,12 +57,6 @@
 
 ---
 
-## 🕹️ Contribution Pac-Man  
-![Pac-Man animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/pacman.svg#gh-light-mode-only)
-![Pac-Man animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/pacman-dark.svg#gh-dark-mode-only)
-
-
-
 ## 💡 Random Dev Quote  
 <p align="center">
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" />
