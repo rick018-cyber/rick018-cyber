@@ -55,9 +55,6 @@
 ![Snake animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/snake.svg#gh-light-mode-only)
 ![Snake animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/snake-dark.svg#gh-dark-mode-only)
 
-## 🕹️ Contribution Pac-Man
-![Pac-Man animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/pacman.svg#gh-light-mode-only)
-![Pac-Man animation](https://github.com/rick018-cyber/rick018-cyber/blob/output/pacman.svg#gh-dark-mode-only)
 
 
 
