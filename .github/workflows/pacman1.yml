@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repo
+      # 1. Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
@@ -28,7 +28,7 @@ jobs:
             <polygon points="50,50 100,25 100,75" fill="black"/>
           </svg>' > ./output/pacman.svg
 
-      # 4. Commit & push if changed
+      # 4. Commit & push only if changes exist
       - name: Commit and Push if Changed
         run: |
           git config --global user.name "github-actions[bot]"
@@ -36,10 +36,9 @@ jobs:
           git add ./output/pacman.svg
           if ! git diff --cached --quiet; then
             git commit -m "Update Pac-Man SVG"
-            git push
+            git push origin HEAD:${{ github.ref_name }}
           else
             echo "No changes to commit"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
