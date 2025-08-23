@@ -8,6 +8,10 @@ on:
     branches:
       - main                  # also run on pushes to main
 
+# ✅ give Actions write access to push snake files
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +32,8 @@ jobs:
       - name: Push snake files to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output
+          target_branch: output    # branch to store snake files
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
